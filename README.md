@@ -74,7 +74,7 @@ For Software:https://sneeze-o-meter.netlify.app
 
 ### Project Demo
 # Video
-https://drive.google.com/drive/folders/1BRItZxpFRSkDjf19wHePnxMva6TVx99p?usp=drive_link
+https://drive.google.com/file/d/1ci2V9crVdC6BHNrD2UXfLLEWwu8O0bsI/view?usp=sharing
 
 
 ## Team Contributions
