@@ -2,34 +2,43 @@
 
 
 
-# [Project Name] 🎯
+# Sneeze-O-Meter 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Tech Turtles
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
-
+- Team Lead: Vasudev S - Saintgits College of Engineering
+- Member 2: Aarsha B Lekshmi - Saintgits College of Engineering
 ### Project Description
-[2-3 lines about what your project does]
+SNEEZE-O-METER is a fun, absurd sneeze certification system that detects and analyses sneezes using a microphone. It measures sneeze power, accuracy, duration, and assigns a unique sneeze personality and award.
+
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Sneezes happen every day, yet there is no scientific way to determine whether your sneeze is powerful, dramatic, or worthy of recognition.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+SNEEZE-O-METER — because every sneeze deserves to be measured and certified.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Python
+  HTML
+  CSS
+  JavaScript
+- Flask — Python web framework for the backend
+  SciPy — Audio signal processing
+  NumPy — Numerical/audio data processing
+- SoundDevice, NumPy, SciPy, Flask, Random, Datetime, Threading
+- VS Code — Coding and project development
+  Git & GitHub — Version control and collaboration
+  Chrome — Testing the web application
+  PowerShell — Running Python commands and server
+  Canva — Presentation/PPT design
+  Flask Development Server — Running the website locally
 
 For Hardware:
 - [List main components]
@@ -37,61 +46,39 @@ For Hardware:
 - [List tools required]
 
 ### Implementation
-For Software:
+For Software:Developed the backend using Python and Flask.
+Used SoundDevice to capture real-time microphone audio.
+Applied NumPy and SciPy for audio signal analysis and sneeze detection.
+Used HTML, CSS and JavaScript to create the interactive web interface.
+Implemented algorithms to calculate Sneeze Accuracy, Power, Duration and Time.
+Added personality classification and award generation based on sneeze results.
 # Installation
-[commands]
+python main.py
+http://127.0.0.1:5000
 
 # Run
-[commands]
+http://127.0.0.1:5000
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot1]![Home Screen](screenshots/home.png)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2]![Sneeze Analysis](screenshots/analysis.png)
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot3]![Sneeze Certificate](screenshots/certificate.png)
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
+
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Vasudev s: Coding, Audio Detection, Debugging and Testing
+- Aarsha B Lekshmi:Team Management, Coordination and Presentation
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 

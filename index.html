@@ -1,1 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SNEEZE-O-METER</title>
+
+    <script
+        type="text/javascript"
+        async
+        src="https://tenor.com/embed.js"
+    ></script>
+
+    <link
+        rel="stylesheet"
+        href="static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<!-- SOUND EFFECTS -->
+
+<audio id="sound-startup" src="static/sounds/startup.mp3"></audio>
+
+<audio
+    id="sound-listening"
+    src="static/sounds/listening.mp3"
+    loop
+></audio>
+
+<audio
+    id="sound-detected"
+    src="static/sounds/detected.mp3"
+></audio>
+
+<audio
+    id="sound-personality"
+    src="static/sounds/personality.mp3"
+></audio>
+
+<audio
+    id="sound-award"
+    src="static/sounds/award.mp3"
+></audio>
+
+<audio
+    id="sound-reset"
+    src="static/sounds/reset.mp3"
+></audio>
+
+
+<!-- BACKGROUND -->
+
+<div class="bg-shape shape-one"></div>
+<div class="bg-shape shape-two"></div>
+<div class="bg-shape shape-three"></div>
+
+<div class="pixel pixel-one"></div>
+<div class="pixel pixel-two"></div>
+<div class="pixel pixel-three"></div>
+
+
+<div class="container">
+
+
+<!-- =========================================
+     HOME
+========================================= -->
+
+<section
+    id="homeScreen"
+    class="screen active"
+>
+
+    <div class="hero">
+
+        <h1 class="main-title">
+            SNEEZE-O-METER
+        </h1>
+
+
+        <div class="home-gif">
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="12334935"
+                data-share-method="host"
+                data-aspect-ratio="1.77778"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/estornudo-resfriado-fr%C3%ADo-piu-piu-sneeze-gif-12334935"
+                >
+                    Sneeze GIF
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="startSneeze()"
+        >
+            TAP TO SNEEZE
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     LISTENING
+========================================= -->
+
+<section
+    id="listeningScreen"
+    class="screen"
+>
+
+    <h2 class="section-title">
+        LISTENING FOR SNEEZE...
+    </h2>
+
+
+    <div class="listening-gif">
+
+        <div
+            class="tenor-gif-embed"
+            data-postid="8746293078017094853"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="100%"
+        >
+
+            <a
+                href="https://tenor.com/view/pengu-pudgy-penguin-pudgypenguins-stock-market-gif-8746293078017094853"
+            >
+                Penguin GIF
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="waitingText"
+        class="waiting-text"
+    >
+        Waiting for your sneeze...
+    </div>
+
+
+    <div
+        id="detectedBox"
+        class="detected-box"
+    >
+
+        <div class="detected-icon">
+            🤧
+        </div>
+
+
+        <div class="detected-title">
+            SNEEZE DETECTED!
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="showAnalysis()"
+        >
+            ANALYSE →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ANALYSIS
+========================================= -->
+
+<section
+    id="analysisScreen"
+    class="screen"
+>
+
+
+    <div class="analysis-gif">
+
+        <div
+            class="tenor-gif-embed"
+            data-postid="14069131"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="100%"
+        >
+
+            <a
+                href="https://tenor.com/view/heytvm-tvm-graduation-grad-graduating-gif-14069131"
+            >
+                Graduation GIF
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">
+        SNEEZE ANALYSIS
+    </h2>
+
+
+    <div class="stats-card">
+
+
+        <div class="stat">
+
+            <span class="stat-label">
+                SNEEZE ACCURACY
+            </span>
+
+            <span
+                id="accuracy"
+                class="stat-value"
+            >
+                --
+            </span>
+
+            <span class="stat-unit">
+                %
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span class="stat-label">
+                SNEEZE POWER
+            </span>
+
+            <span
+                id="power"
+                class="stat-value"
+            >
+                --
+            </span>
+
+            <span class="stat-unit">
+                / 10
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span class="stat-label">
+                TIME OF SNEEZE
+            </span>
+
+            <span
+                id="sneezeTime"
+                class="stat-small"
+            >
+                --
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <span class="stat-label">
+                SNEEZE DURATION
+            </span>
+
+            <span
+                id="duration"
+                class="stat-value"
+            >
+                --
+            </span>
+
+            <span class="stat-unit">
+                sec
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="showPersonality()"
+    >
+        CONTINUE →
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PERSONALITY
+========================================= -->
+
+<section
+    id="personalityScreen"
+    class="screen"
+>
+
+
+    <h2 class="section-title">
+        YOUR SNEEZE PERSONALITY
+    </h2>
+
+
+    <div
+        id="personalityGif"
+        class="personality-gif"
+    >
+
+
+        <!-- MOUSE -->
+
+        <div
+            id="gif-mouse"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="8024046597830070440"
+                data-share-method="host"
+                data-aspect-ratio="1.0332"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/mouse-gif-8024046597830070440"
+                >
+                    Mouse GIF
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRAIN -->
+
+        <div
+            id="gif-train"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="5461332310490478175"
+                data-share-method="host"
+                data-aspect-ratio="1"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/train-rail-railroad-railway-locomotive-gif-5461332310490478175"
+                >
+                    Train GIF
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- DINOSAUR -->
+
+        <div
+            id="gif-dinosaur"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="14904067738244826614"
+                data-share-method="host"
+                data-aspect-ratio="1"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/google-dinosaur-game-dinosaur-pixel-internet-running-gif-14904067738244826614"
+                >
+                    Dinosaur GIF
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- LION -->
+
+        <div
+            id="gif-lion"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="9927708839210538722"
+                data-share-method="host"
+                data-aspect-ratio="1.29412"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/catwalk-gif-9927708839210538722"
+                >
+                    Catwalk GIF
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- NUCLEAR -->
+
+        <div
+            id="gif-nuclear"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="9243943"
+                data-share-method="host"
+                data-aspect-ratio="1.33333"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/simpsons-gif-9243943"
+                >
+                    Meltdown GIF
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="personality-card">
+
+        <div
+            id="personalityName"
+            class="personality"
+        >
+            --
+        </div>
+
+
+        <p
+            id="personalityDescription"
+            class="personality-description"
+        >
+            --
+        </p>
+
+    </div>
+
+
+    <button
+        class="primary-button award-button"
+        onclick="showAward()"
+    >
+        SNEEZE AWARD →
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     AWARD
+========================================= -->
+
+<section
+    id="awardScreen"
+    class="screen"
+>
+
+
+    <div class="certificate">
+
+
+        <div class="certificate-small">
+            OFFICIAL SNEEZE-O-METER
+        </div>
+
+
+        <h2 class="certificate-title">
+            SNEEZE CERTIFICATION
+        </h2>
+
+
+        <div class="certificate-line"></div>
+
+
+        <div class="certificate-label">
+            YOUR SNEEZE PERSONALITY
+        </div>
+
+
+        <div
+            id="finalPersonality"
+            class="certificate-personality"
+        >
+            --
+        </div>
+
+
+        <div class="certificate-label award-label">
+            YOUR SNEEZE AWARD
+        </div>
+
+
+        <div
+            id="finalAward"
+            class="award"
+        >
+            --
+        </div>
+
+
+        <div class="certificate-seal">
+            🤧
+        </div>
+
+
+        <div class="certificate-footer">
+            SCIENTIFICALLY UNNECESSARY.<br>
+            OFFICIALLY CERTIFIED.
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="resetAndSneeze()"
+    >
+        SNEEZE AGAIN
+    </button>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+// =========================================
+// VARIABLES
+// =========================================
+
+let sneezeData = null;
+
+let audioContext = null;
+
+let analyser = null;
+
+let microphone = null;
+
+let audioStream = null;
+
+let animationFrame = null;
+
+let listening = false;
+
+let sneezeStart = null;
+
+let loudStart = null;
+
+let peakVolume = 0;
+
+let samples = [];
+
+
+// =========================================
+// SOUND
+// =========================================
+
+function playSound(id) {
+
+    const sound =
+        document.getElementById(id);
+
+    if (!sound) return;
+
+    sound.currentTime = 0;
+
+    sound.play().catch(() => {});
+
+}
+
+
+function stopSound(id) {
+
+    const sound =
+        document.getElementById(id);
+
+    if (!sound) return;
+
+    sound.pause();
+
+    sound.currentTime = 0;
+
+}
+
+
+function stopAllSounds() {
+
+    document
+        .querySelectorAll("audio")
+        .forEach(sound => {
+
+            sound.pause();
+
+            sound.currentTime = 0;
+
+        });
+
+}
+
+
+// =========================================
+// SCREEN
+// =========================================
+
+function showScreen(screenId) {
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(screenId)
+        .classList.add("active");
+
+}
+
+
+// =========================================
+// START
+// =========================================
+
+async function startSneeze() {
+
+    stopAllSounds();
+
+    sneezeData = null;
+
+    showScreen("listeningScreen");
+
+
+    document
+        .getElementById("detectedBox")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("waitingText")
+        .innerText =
+        "Waiting for your sneeze...";
+
+
+    playSound("sound-startup");
+
+
+    setTimeout(() => {
+
+        playSound("sound-listening");
+
+    }, 300);
+
+
+    try {
+
+        await startMicrophone();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        document
+            .getElementById("waitingText")
+            .innerText =
+            "Microphone permission required.";
+
+
+        stopSound("sound-listening");
+
+    }
+
+}
+
+
+// =========================================
+// MICROPHONE
+// =========================================
+
+async function startMicrophone() {
+
+    audioStream =
+        await navigator.mediaDevices.getUserMedia({
+            audio: true
+        });
+
+
+    audioContext =
+        new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
+
+
+    analyser =
+        audioContext.createAnalyser();
+
+
+    analyser.fftSize = 2048;
+
+    analyser.smoothingTimeConstant = 0.25;
+
+
+    microphone =
+        audioContext.createMediaStreamSource(
+            audioStream
+        );
+
+
+    microphone.connect(analyser);
+
+
+    listening = true;
+
+    sneezeStart = null;
+
+    loudStart = null;
+
+    peakVolume = 0;
+
+    samples = [];
+
+
+    detectAudio();
+
+}
+
+
+// =========================================
+// AUDIO DETECTOR
+// =========================================
+
+function detectAudio() {
+
+    if (!listening) return;
+
+
+    const bufferLength =
+        analyser.fftSize;
+
+
+    const data =
+        new Uint8Array(bufferLength);
+
+
+    analyser.getByteTimeDomainData(data);
+
+
+    let sum = 0;
+
+
+    for (let i = 0; i < data.length; i++) {
+
+        const value =
+            (data[i] - 128) / 128;
+
+        sum += value * value;
+
+    }
+
+
+    const rms =
+        Math.sqrt(
+            sum / data.length
+        );
+
+
+    samples.push(rms);
+
+
+    if (samples.length > 80) {
+
+        samples.shift();
+
+    }
+
+
+    const threshold = 0.12;
+
+
+    if (rms > threshold) {
+
+        if (!loudStart) {
+
+            loudStart =
+                performance.now();
+
+            sneezeStart =
+                performance.now();
+
+        }
+
+
+        peakVolume =
+            Math.max(
+                peakVolume,
+                rms
+            );
+
+    }
+
+
+    else {
+
+        if (loudStart) {
+
+            const now =
+                performance.now();
+
+
+            const loudDuration =
+                now - loudStart;
+
+
+            // A sneeze-like event:
+            // loud enough and lasted
+            // between 80ms and 1800ms.
+
+            if (
+                loudDuration >= 80 &&
+                loudDuration <= 1800
+            ) {
+
+                finishSneeze(
+                    loudDuration / 1000
+                );
+
+                return;
+
+            }
+
+
+            loudStart = null;
+
+        }
+
+    }
+
+
+    animationFrame =
+        requestAnimationFrame(
+            detectAudio
+        );
+
+}
+
+
+// =========================================
+// FINISH SNEEZE
+// =========================================
+
+function finishSneeze(duration) {
+
+    listening = false;
+
+
+    if (animationFrame) {
+
+        cancelAnimationFrame(
+            animationFrame
+        );
+
+    }
+
+
+    stopMicrophone();
+
+
+    stopSound("sound-listening");
+
+
+    playSound("sound-detected");
+
+
+    // =====================================
+    // CALCULATE SCORE
+    // =====================================
+
+    let power =
+        Math.min(
+            10,
+            Math.max(
+                1,
+                Math.round(
+                    peakVolume * 18
+                )
+            )
+        );
+
+
+    let accuracy =
+        Math.min(
+            99,
+            Math.max(
+                70,
+                Math.round(
+                    78 +
+                    (peakVolume * 35) +
+                    Math.min(
+                        duration * 5,
+                        12
+                    )
+                )
+            )
+        );
+
+
+    // Add tiny randomness
+    // to make it feel like
+    // a ridiculous machine.
+
+    accuracy +=
+        Math.floor(
+            Math.random() * 5
+        );
+
+
+    accuracy =
+        Math.min(
+            99,
+            accuracy
+        );
+
+
+    const now =
+        new Date();
+
+
+    const time =
+        now.toLocaleTimeString(
+            [],
+            {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            }
+        );
+
+
+    sneezeData = {
+
+        accuracy: accuracy,
+
+        power: power,
+
+        duration: Number(
+            duration.toFixed(2)
+        ),
+
+        time: time
+
+    };
+
+
+    document
+        .getElementById("waitingText")
+        .innerText =
+        "Sneeze successfully detected!";
+
+
+    document
+        .getElementById("detectedBox")
+        .classList.add("show");
+
+}
+
+
+// =========================================
+// STOP MICROPHONE
+// =========================================
+
+function stopMicrophone() {
+
+    if (audioStream) {
+
+        audioStream
+            .getTracks()
+            .forEach(track => {
+
+                track.stop();
+
+            });
+
+        audioStream = null;
+
+    }
+
+
+    if (audioContext) {
+
+        audioContext
+            .close()
+            .catch(() => {});
+
+        audioContext = null;
+
+    }
+
+}
+
+
+// =========================================
+// ANALYSIS
+// =========================================
+
+function showAnalysis() {
+
+    if (!sneezeData) return;
+
+
+    document
+        .getElementById("accuracy")
+        .innerText =
+        Number(
+            sneezeData.accuracy
+        ).toFixed(2);
+
+
+    document
+        .getElementById("power")
+        .innerText =
+        Number(
+            sneezeData.power
+        ).toFixed(2);
+
+
+    document
+        .getElementById("sneezeTime")
+        .innerText =
+        sneezeData.time;
+
+
+    document
+        .getElementById("duration")
+        .innerText =
+        Number(
+            sneezeData.duration
+        ).toFixed(2);
+
+
+    stopSound("sound-detected");
+
+
+    showScreen(
+        "analysisScreen"
+    );
+
+}
+
+
+// =========================================
+// PERSONALITY
+// =========================================
+
+function showPersonality() {
+
+    if (!sneezeData) return;
+
+
+    const personalities = [
+
+        {
+
+            name: "🐭 Mouse Sneeze",
+
+            description:
+                "Small, precise and suspiciously adorable.",
+
+            gif: "mouse"
+
+        },
+
+        {
+
+            name: "🚂 Train Sneeze",
+
+            description:
+                "Long, unstoppable and slightly concerning.",
+
+            gif: "train"
+
+        },
+
+        {
+
+            name: "☢️ Nuclear Sneeze",
+
+            description:
+                "Absolutely unnecessary levels of power.",
+
+            gif: "nuclear"
+
+        },
+
+        {
+
+            name: "🦁 Lion Sneeze",
+
+            description:
+                "Loud, powerful and impossible to ignore.",
+
+            gif: "lion"
+
+        },
+
+        {
+
+            name: "🦖 Dinosaur Sneeze",
+
+            description:
+                "A prehistoric level of sneeze energy.",
+
+            gif: "dinosaur"
+
+        }
+
+    ];
+
+
+    const personality =
+        personalities[
+            Math.floor(
+                Math.random() *
+                personalities.length
+            )
+        ];
+
+
+    sneezeData.personality =
+        personality.name;
+
+
+    sneezeData.description =
+        personality.description;
+
+
+    sneezeData.gif =
+        personality.gif;
+
+
+    // =====================================
+    // AWARD
+    // =====================================
+
+    const power =
+        sneezeData.power;
+
+
+    const accuracy =
+        sneezeData.accuracy;
+
+
+    const duration =
+        sneezeData.duration;
+
+
+    if (power >= 8) {
+
+        sneezeData.award =
+            "💥 Most Powerful Sneeze";
+
+    }
+
+    else if (duration <= 0.5) {
+
+        sneezeData.award =
+            "⚡ Fastest Sneeze";
+
+    }
+
+    else if (accuracy >= 95) {
+
+        sneezeData.award =
+            "🏆 Sneeze of the Year";
+
+    }
+
+    else if (duration >= 1.2) {
+
+        sneezeData.award =
+            "🎭 Most Dramatic Sneeze";
+
+    }
+
+    else {
+
+        sneezeData.award =
+            "🔊 Loudest Sneeze";
+
+    }
+
+
+    document
+        .getElementById("personalityName")
+        .innerText =
+        sneezeData.personality;
+
+
+    document
+        .getElementById("personalityDescription")
+        .innerText =
+        sneezeData.description;
+
+
+    // Hide all GIFs
+
+    document
+        .querySelectorAll(
+            ".personality-gif-item"
+        )
+        .forEach(gif => {
+
+            gif.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+    // Show selected GIF
+
+    const selectedGif =
+        document.getElementById(
+            "gif-" +
+            sneezeData.gif
+        );
+
+
+    if (selectedGif) {
+
+        selectedGif.classList.add(
+            "selected"
+        );
+
+    }
+
+
+    stopAllSounds();
+
+    playSound(
+        "sound-personality"
+    );
+
+
+    showScreen(
+        "personalityScreen"
+    );
+
+}
+
+
+// =========================================
+// AWARD
+// =========================================
+
+function showAward() {
+
+    if (!sneezeData) return;
+
+
+    document
+        .getElementById("finalPersonality")
+        .innerText =
+        sneezeData.personality;
+
+
+    document
+        .getElementById("finalAward")
+        .innerText =
+        sneezeData.award;
+
+
+    stopSound(
+        "sound-personality"
+    );
+
+
+    playSound(
+        "sound-award"
+    );
+
+
+    showScreen(
+        "awardScreen"
+    );
+
+}
+
+
+// =========================================
+// RESET
+// =========================================
+
+function resetAndSneeze() {
+
+    stopAllSounds();
+
+
+    stopMicrophone();
+
+
+    sneezeData = null;
+
+
+    listening = false;
+
+
+    if (animationFrame) {
+
+        cancelAnimationFrame(
+            animationFrame
+        );
+
+        animationFrame = null;
+
+    }
+
+
+    playSound(
+        "sound-reset"
+    );
+
+
+    showScreen(
+        "homeScreen"
+    );
+
+
+    setTimeout(() => {
+
+        startSneeze();
+
+    }, 500);
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
