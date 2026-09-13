@@ -1,0 +1,1416 @@
+/* =========================================
+   ROOT
+========================================= */
+
+:root {
+
+    --primary: #e51801;
+
+    --secondary: #fbfab4;
+
+    --dark: #141414;
+
+    --card: #272727;
+
+    --muted: #aaa;
+
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: var(--primary);
+
+    color: var(--secondary);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    overflow-x: hidden;
+
+    position: relative;
+
+}
+
+
+/* =========================================
+   MOVING BACKGROUND EFFECTS
+========================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 650px;
+
+    height: 650px;
+
+    top: -250px;
+
+    left: -200px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(251, 250, 180, 0.16) 0%,
+            rgba(251, 250, 180, 0.07) 30%,
+            transparent 70%
+        );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+        backgroundGlow
+        14s ease-in-out infinite alternate;
+
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 550px;
+
+    height: 550px;
+
+    right: -220px;
+
+    bottom: -200px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(20, 20, 20, 0.18) 0%,
+            rgba(20, 20, 20, 0.08) 35%,
+            transparent 70%
+        );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+        backgroundGlowTwo
+        18s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes backgroundGlow {
+
+    0% {
+
+        transform:
+            translate(0px, 0px)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(80px, 40px)
+            scale(1.08);
+
+    }
+
+    100% {
+
+        transform:
+            translate(30px, 90px)
+            scale(1.03);
+
+    }
+
+}
+
+
+@keyframes backgroundGlowTwo {
+
+    0% {
+
+        transform:
+            translate(0px, 0px)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-60px, -50px)
+            scale(1.1);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-20px, -80px)
+            scale(1.04);
+
+    }
+
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================
+   BACKGROUND SHAPES
+========================================= */
+
+.bg-shape {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: 0.25;
+
+}
+
+
+.shape-one {
+
+    width: 90px;
+
+    height: 90px;
+
+    border: 5px solid var(--secondary);
+
+    transform: rotate(20deg);
+
+    top: 12%;
+
+    left: 5%;
+
+    animation: floatOne 7s ease-in-out infinite;
+
+}
+
+
+.shape-two {
+
+    width: 60px;
+
+    height: 60px;
+
+    background: var(--dark);
+
+    transform: rotate(45deg);
+
+    right: 8%;
+
+    top: 25%;
+
+    animation: floatTwo 9s ease-in-out infinite;
+
+}
+
+
+.shape-three {
+
+    width: 75px;
+
+    height: 75px;
+
+    border: 5px solid var(--dark);
+
+    border-radius: 50%;
+
+    bottom: 12%;
+
+    left: 8%;
+
+    animation: floatThree 8s ease-in-out infinite;
+
+}
+
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(20deg)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(35deg)
+            translateY(-25px);
+
+    }
+
+}
+
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(45deg)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(70deg)
+            translateY(25px);
+
+    }
+
+}
+
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-20px)
+            scale(1.08);
+
+    }
+
+}
+
+
+/* =========================================
+   PIXELS
+========================================= */
+
+.pixel {
+
+    position: fixed;
+
+    width: 12px;
+
+    height: 12px;
+
+    background: var(--secondary);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+.pixel-one {
+
+    top: 18%;
+
+    right: 20%;
+
+    animation:
+        pixelFloat
+        5s infinite ease-in-out;
+
+}
+
+
+.pixel-two {
+
+    bottom: 25%;
+
+    right: 12%;
+
+    width: 8px;
+
+    height: 8px;
+
+    animation:
+        pixelFloat
+        6s infinite ease-in-out reverse;
+
+}
+
+
+.pixel-three {
+
+    top: 55%;
+
+    left: 12%;
+
+    width: 7px;
+
+    height: 7px;
+
+    animation:
+        pixelFloat
+        7s infinite ease-in-out;
+
+}
+
+
+@keyframes pixelFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.4;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            rotate(90deg);
+
+        opacity: 0.8;
+
+    }
+
+}
+
+
+/* =========================================
+   SCREEN
+========================================= */
+
+.screen {
+
+    display: none;
+
+    min-height: 80vh;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    animation:
+        screenEnter
+        0.5s ease;
+
+}
+
+
+.screen.active {
+
+    display: flex;
+
+}
+
+
+@keyframes screenEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   TITLES
+========================================= */
+
+.main-title {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-weight: bold;
+
+    font-size: clamp(
+        55px,
+        10vw,
+        110px
+    );
+
+    line-height: 0.9;
+
+    margin: 0;
+
+    letter-spacing: -4px;
+
+    text-shadow:
+        6px 6px 0 var(--dark);
+
+}
+
+
+.section-title {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-weight: bold;
+
+    font-size: clamp(
+        36px,
+        6vw,
+        65px
+    );
+
+    line-height: 0.95;
+
+    margin: 10px 0 30px;
+
+    text-shadow:
+        4px 4px 0 var(--dark);
+
+}
+
+
+.tagline {
+
+    font-size: 18px;
+
+    margin: 25px 0;
+
+}
+
+
+/* =========================================
+   GIFS
+========================================= */
+
+.home-gif {
+
+    width: 360px;
+
+    max-width: 85vw;
+
+    margin: 20px auto 30px;
+
+    border: 6px solid var(--dark);
+
+    background: var(--secondary);
+
+    overflow: hidden;
+
+    box-shadow:
+        8px 8px 0 var(--dark);
+
+}
+
+
+.listening-gif {
+
+    width: 220px;
+
+    max-width: 70vw;
+
+    margin: 10px auto 25px;
+
+    border: 5px solid var(--dark);
+
+    background: var(--secondary);
+
+    overflow: hidden;
+
+    box-shadow:
+        6px 6px 0 var(--dark);
+
+}
+
+
+.analysis-gif {
+
+    width: 190px;
+
+    max-width: 60vw;
+
+    margin: 0 auto 20px;
+
+    border: 5px solid var(--dark);
+
+    background: var(--secondary);
+
+    overflow: hidden;
+
+    box-shadow:
+        6px 6px 0 var(--dark);
+
+}
+
+
+/* =========================================
+   PERSONALITY GIF
+========================================= */
+
+.personality-gif {
+
+    width: 155px;
+
+    height: 155px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--secondary);
+
+    border: 5px solid var(--dark);
+
+    box-shadow:
+        7px 7px 0 var(--dark);
+
+    overflow: hidden;
+
+}
+
+
+.personality-gif-item {
+
+    display: none;
+
+    width: 100%;
+
+    height: 100%;
+
+    animation:
+        gifAppear
+        0.5s ease;
+
+}
+
+
+.personality-gif-item.selected {
+
+    display: block;
+
+}
+
+
+.personality-gif-item .tenor-gif-embed {
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+}
+
+
+@keyframes gifAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.75);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-button {
+
+    border: 5px solid var(--dark);
+
+    background: var(--secondary);
+
+    color: var(--dark);
+
+    padding: 18px 35px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-weight: 900;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        7px 7px 0 var(--dark);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translate(3px, 3px);
+
+    box-shadow:
+        4px 4px 0 var(--dark);
+
+}
+
+
+.primary-button:active {
+
+    transform:
+        translate(7px, 7px);
+
+    box-shadow:
+        0 0 0 var(--dark);
+
+}
+
+
+.award-button {
+
+    margin-top: 15px;
+
+}
+
+
+/* =========================================
+   LISTENING STATUS
+========================================= */
+
+.status-text {
+
+    font-size: 16px;
+
+    background: var(--dark);
+
+    color: var(--secondary);
+
+    padding: 10px 18px;
+
+    display: inline-block;
+
+    margin-bottom: 5px;
+
+}
+
+
+.waiting-text {
+
+    font-size: 18px;
+
+    margin: 15px 0 25px;
+
+    animation:
+        microphonePulse
+        1.5s infinite;
+
+}
+
+
+@keyframes microphonePulse {
+
+    0%,
+    100% {
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================
+   DETECTED BOX
+========================================= */
+
+.detected-box {
+
+    display: none;
+
+    background: var(--dark);
+
+    padding: 25px 35px;
+
+    border: 5px solid var(--secondary);
+
+    box-shadow:
+        8px 8px 0 rgba(
+            20,
+            20,
+            20,
+            0.4
+        );
+
+}
+
+
+.detected-box.show {
+
+    display: block;
+
+    animation:
+        detectedAppear
+        0.5s ease;
+
+}
+
+
+.detected-icon {
+
+    font-size: 55px;
+
+    animation:
+        iconPop
+        0.5s ease;
+
+}
+
+
+.detected-title {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 32px;
+
+    margin: 10px 0 20px;
+
+}
+
+
+@keyframes detectedAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes iconPop {
+
+    0% {
+
+        transform:
+            scale(0);
+
+    }
+
+    70% {
+
+        transform:
+            scale(1.2);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats-card {
+
+    width: min(
+        650px,
+        90vw
+    );
+
+    background: var(--dark);
+
+    border: 5px solid var(--secondary);
+
+    padding: 10px;
+
+    box-shadow:
+        9px 9px 0 var(--dark);
+
+    margin-bottom: 35px;
+
+}
+
+
+.stat {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    border-bottom:
+        2px solid var(--card);
+
+}
+
+
+.stat:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.stat-label {
+
+    font-size: 15px;
+
+    text-align: left;
+
+}
+
+
+.stat-value {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 38px;
+
+    color: var(--secondary);
+
+}
+
+
+.stat-unit {
+
+    min-width: 45px;
+
+    text-align: left;
+
+}
+
+
+.stat-small {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 24px;
+
+    color: var(--secondary);
+
+}
+
+
+/* =========================================
+   PERSONALITY
+========================================= */
+
+.personality-card {
+
+    width: min(
+        650px,
+        90vw
+    );
+
+    background: var(--dark);
+
+    border: 5px solid var(--secondary);
+
+    padding: 30px;
+
+    box-shadow:
+        9px 9px 0 var(--dark);
+
+    box-sizing: border-box;
+
+}
+
+
+.personality {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-weight: bold;
+
+    font-size: clamp(
+        42px,
+        7vw,
+        65px
+    );
+
+    line-height: 1;
+
+    margin-bottom: 15px;
+
+}
+
+
+.personality-description {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    margin: 0;
+
+}
+
+
+/* =========================================
+   CERTIFICATE
+========================================= */
+
+.certificate {
+
+    width: min(
+        700px,
+        90vw
+    );
+
+    box-sizing: border-box;
+
+    background: var(--secondary);
+
+    color: var(--dark);
+
+    border: 8px solid var(--dark);
+
+    padding: 45px 30px;
+
+    box-shadow:
+        12px 12px 0 var(--dark);
+
+    margin-bottom: 40px;
+
+}
+
+
+.certificate-small {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.certificate-title {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: clamp(
+        40px,
+        7vw,
+        70px
+    );
+
+    line-height: 0.9;
+
+    margin: 0;
+
+}
+
+
+.certificate-line {
+
+    height: 5px;
+
+    background: var(--dark);
+
+    width: 80%;
+
+    margin: 25px auto;
+
+}
+
+
+.certificate-label {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.certificate-personality {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: clamp(
+        30px,
+        5vw,
+        50px
+    );
+
+    font-weight: bold;
+
+}
+
+
+.award-label {
+
+    margin-top: 35px;
+
+}
+
+
+.award {
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: clamp(
+        28px,
+        5vw,
+        48px
+    );
+
+    font-weight: bold;
+
+    line-height: 1;
+
+}
+
+
+.certificate-seal {
+
+    width: 75px;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 5px solid var(--dark);
+
+    border-radius: 50%;
+
+    margin: 30px auto 20px;
+
+    font-size: 35px;
+
+}
+
+
+.certificate-footer {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+
+    body {
+
+        padding:
+            25px 15px;
+
+    }
+
+
+    .main-title {
+
+        font-size: 58px;
+
+        letter-spacing: -2px;
+
+        text-shadow:
+            4px 4px 0 var(--dark);
+
+    }
+
+
+    .section-title {
+
+        font-size: 40px;
+
+        text-shadow:
+            3px 3px 0 var(--dark);
+
+    }
+
+
+    .home-gif {
+
+        width: 280px;
+
+    }
+
+
+    .listening-gif {
+
+        width: 180px;
+
+    }
+
+
+    .analysis-gif {
+
+        width: 150px;
+
+    }
+
+
+    .personality-gif {
+
+        width: 125px;
+
+        height: 125px;
+
+    }
+
+
+    .stats-card {
+
+        width: 95vw;
+
+    }
+
+
+    .stat {
+
+        padding:
+            15px 10px;
+
+        gap: 10px;
+
+    }
+
+
+    .stat-label {
+
+        font-size: 12px;
+
+    }
+
+
+    .stat-value {
+
+        font-size: 30px;
+
+    }
+
+
+    .stat-small {
+
+        font-size: 17px;
+
+    }
+
+
+    .personality-card {
+
+        padding: 22px 15px;
+
+    }
+
+
+    .personality {
+
+        font-size: 42px;
+
+    }
+
+
+    .certificate {
+
+        padding:
+            35px 18px;
+
+    }
+
+
+    .certificate-title {
+
+        font-size: 40px;
+
+    }
+
+
+    .primary-button {
+
+        padding:
+            16px 25px;
+
+        font-size: 16px;
+
+    }
+
+
+    .shape-one,
+    .shape-two,
+    .shape-three,
+    .pixel {
+
+        opacity: 0.15;
+
+    }
+
+}
