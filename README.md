@@ -56,8 +56,10 @@ Added personality classification and award generation based on sneeze results.
 python main.py
 http://127.0.0.1:5000
 
+
 # Run
 http://127.0.0.1:5000
+https://sneeze-o-meter.netlify.app
 
 ### Project Documentation
 For Software:https://sneeze-o-meter.netlify.app
@@ -72,7 +74,7 @@ For Software:https://sneeze-o-meter.netlify.app
 
 ### Project Demo
 # Video
-
+https://drive.google.com/drive/folders/1BRItZxpFRSkDjf19wHePnxMva6TVx99p?usp=drive_link
 
 
 ## Team Contributions
