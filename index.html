@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -27,1170 +26,1803 @@
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
+        href="static/style.css"
     >
 
 </head>
 
 
 <body>
-<!-- SOUND EFFECTS -->
-<audio id="sound-startup" src="/static/sounds/startup.mp3"></audio>
-<audio id="sound-listening" src="/static/sounds/listening.mp3" loop></audio>
-<audio id="sound-detected" src="/static/sounds/detected.mp3"></audio>
-<audio id="sound-analysis" src="/static/sounds/analysis.mp3"></audio>
-<audio id="sound-personality" src="/static/sounds/personality.mp3"></audio>
-<audio id="sound-award" src="/static/sounds/award.mp3"></audio>
-<audio id="sound-reset" src="/static/sounds/reset.mp3"></audio>
-
-    <!-- =========================================
-         BACKGROUND
-    ========================================== -->
-
-    <div class="bg-shape shape-one"></div>
-
-    <div class="bg-shape shape-two"></div>
-
-    <div class="bg-shape shape-three"></div>
 
 
-    <div class="pixel pixel-one"></div>
+<!-- =========================================
+     SOUND EFFECTS
+========================================= -->
 
-    <div class="pixel pixel-two"></div>
+<audio
+    id="sound-startup"
+    src="static/sounds/startup.mp3"
+></audio>
 
-    <div class="pixel pixel-three"></div>
+<audio
+    id="sound-listening"
+    src="static/sounds/listening.mp3"
+    loop
+></audio>
 
+<audio
+    id="sound-detected"
+    src="static/sounds/detected.mp3"
+></audio>
 
-    <!-- =========================================
-         MAIN CONTAINER
-    ========================================== -->
+<audio
+    id="sound-personality"
+    src="static/sounds/personality.mp3"
+></audio>
 
-    <div class="container">
+<audio
+    id="sound-award"
+    src="static/sounds/award.mp3"
+></audio>
 
-
-        <!-- =====================================
-             HOME SCREEN
-        ====================================== -->
-
-        <section
-            id="homeScreen"
-            class="screen active"
-        >
-
-            <div class="hero">
-
-
-                <h1 class="main-title">
-
-                    SNEEZE-O-METER
-
-                </h1>
-
-
-                <p class="tagline">
-
-                    Because your sneeze deserves to be measured.
-
-                </p>
-
-
-                <!-- HOME GIF -->
-
-                <div class="home-gif">
-
-                    <div
-                        class="tenor-gif-embed"
-                        data-postid="12334935"
-                        data-share-method="host"
-                        data-aspect-ratio="1.77778"
-                        data-width="100%"
-                    >
-
-                        <a
-                            href="https://tenor.com/view/estornudo-resfriado-fr%C3%ADo-piu-piu-sneeze-gif-12334935"
-                        >
-                            Estornudo Resfriado GIF
-                        </a>
-
-                        from
-
-                        <a
-                            href="https://tenor.com/search/estornudo-gifs"
-                        >
-                            Estornudo GIFs
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="primary-button"
-                    onclick="startSneeze()"
-                >
-
-                    TAP TO SNEEZE
-
-                </button>
-
-
-            </div>
-
-        </section>
+<audio
+    id="sound-reset"
+    src="static/sounds/reset.mp3"
+></audio>
 
 
 
-        <!-- =====================================
-             LISTENING SCREEN
-        ====================================== -->
+<!-- =========================================
+     BACKGROUND
+========================================= -->
 
-        <section
-            id="listeningScreen"
-            class="screen"
-        >
+<div class="bg-shape shape-one"></div>
 
+<div class="bg-shape shape-two"></div>
 
-            <h2 class="section-title">
-
-                LISTENING FOR SNEEZE...
-
-            </h2>
+<div class="bg-shape shape-three"></div>
 
 
-            <div class="status-text">
+<div class="pixel pixel-one"></div>
 
-                🎤 MICROPHONE ACTIVE
+<div class="pixel pixel-two"></div>
 
-            </div>
+<div class="pixel pixel-three"></div>
 
 
-            <!-- LISTENING GIF -->
 
-            <div class="listening-gif">
+<!-- =========================================
+     MAIN CONTAINER
+========================================= -->
 
-                <div
-                    class="tenor-gif-embed"
-                    data-postid="8746293078017094853"
-                    data-share-method="host"
-                    data-aspect-ratio="1"
-                    data-width="100%"
-                >
+<div class="container">
 
-                    <a
-                        href="https://tenor.com/view/pengu-pudgy-penguin-pudgypenguins-stock-market-gif-8746293078017094853"
-                    >
-                        Pengu Pudgy GIF
-                    </a>
 
-                    from
 
-                    <a
-                        href="https://tenor.com/search/pengu-gifs"
-                    >
-                        Pengu GIFs
-                    </a>
+<!-- =========================================
+     HOME SCREEN
+========================================= -->
 
-                </div>
+<section
+    id="homeScreen"
+    class="screen active"
+>
 
-            </div>
+    <div class="hero">
 
+
+        <h1 class="main-title">
+
+            SNEEZE-O-METER
+
+        </h1>
+
+
+        <p class="tagline">
+
+            Because your sneeze deserves to be measured.
+
+        </p>
+
+
+        <!-- HOME GIF -->
+
+        <div class="home-gif">
 
             <div
-                id="waitingText"
-                class="waiting-text"
+                class="tenor-gif-embed"
+                data-postid="12334935"
+                data-share-method="host"
+                data-aspect-ratio="1.77778"
+                data-width="100%"
             >
 
-                Waiting for your sneeze...
+                <a
+                    href="https://tenor.com/view/estornudo-resfriado-fr%C3%ADo-piu-piu-sneeze-gif-12334935"
+                >
+                    Estornudo Resfriado GIF
+                </a>
+
+                from
+
+                <a
+                    href="https://tenor.com/search/estornudo-gifs"
+                >
+                    Estornudo GIFs
+                </a>
 
             </div>
 
+        </div>
 
-            <!-- DETECTED -->
+
+        <button
+            class="primary-button"
+            onclick="startSneeze()"
+        >
+
+            TAP TO SNEEZE
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     LISTENING SCREEN
+========================================= -->
+
+<section
+    id="listeningScreen"
+    class="screen"
+>
+
+
+    <h2 class="section-title">
+
+        LISTENING FOR SNEEZE...
+
+    </h2>
+
+
+    <div class="status-text">
+
+        🎤 MICROPHONE ACTIVE
+
+    </div>
+
+
+    <!-- LISTENING GIF -->
+
+    <div class="listening-gif">
+
+        <div
+            class="tenor-gif-embed"
+            data-postid="8746293078017094853"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="100%"
+        >
+
+            <a
+                href="https://tenor.com/view/pengu-pudgy-penguin-pudgypenguins-stock-market-gif-8746293078017094853"
+            >
+                Pengu Pudgy GIF
+            </a>
+
+            from
+
+            <a
+                href="https://tenor.com/search/pengu-gifs"
+            >
+                Pengu GIFs
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="waitingText"
+        class="waiting-text"
+    >
+
+        Waiting for your sneeze...
+
+    </div>
+
+
+    <!-- DETECTED -->
+
+    <div
+        id="detectedBox"
+        class="detected-box"
+    >
+
+        <div class="detected-icon">
+
+            🤧
+
+        </div>
+
+
+        <div class="detected-title">
+
+            SNEEZE DETECTED!
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            onclick="showAnalysis()"
+        >
+
+            ANALYSE →
+
+        </button>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     ANALYSIS SCREEN
+========================================= -->
+
+<section
+    id="analysisScreen"
+    class="screen"
+>
+
+
+    <!-- ANALYSIS GIF -->
+
+    <div class="analysis-gif">
+
+        <div
+            class="tenor-gif-embed"
+            data-postid="14069131"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="100%"
+        >
+
+            <a
+                href="https://tenor.com/view/heytvm-tvm-graduation-grad-graduating-gif-14069131"
+            >
+                Heytvm Graduation Sticker
+            </a>
+
+            from
+
+            <a
+                href="https://tenor.com/search/heytvm-stickers"
+            >
+                Heytvm Stickers
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">
+
+        SNEEZE ANALYSIS
+
+    </h2>
+
+
+    <div class="stats-card">
+
+
+        <!-- ACCURACY -->
+
+        <div class="stat">
+
+            <span class="stat-label">
+
+                SNEEZE ACCURACY
+
+            </span>
+
+            <span
+                id="accuracy"
+                class="stat-value"
+            >
+
+                --
+
+            </span>
+
+            <span class="stat-unit">
+
+                %
+
+            </span>
+
+        </div>
+
+
+        <!-- POWER -->
+
+        <div class="stat">
+
+            <span class="stat-label">
+
+                SNEEZE POWER
+
+            </span>
+
+            <span
+                id="power"
+                class="stat-value"
+            >
+
+                --
+
+            </span>
+
+            <span class="stat-unit">
+
+                / 10
+
+            </span>
+
+        </div>
+
+
+        <!-- TIME -->
+
+        <div class="stat">
+
+            <span class="stat-label">
+
+                TIME OF SNEEZE
+
+            </span>
+
+            <span
+                id="sneezeTime"
+                class="stat-small"
+            >
+
+                --
+
+            </span>
+
+        </div>
+
+
+        <!-- DURATION -->
+
+        <div class="stat">
+
+            <span class="stat-label">
+
+                SNEEZE DURATION
+
+            </span>
+
+            <span
+                id="duration"
+                class="stat-value"
+            >
+
+                --
+
+            </span>
+
+            <span class="stat-unit">
+
+                sec
+
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="showPersonality()"
+    >
+
+        CONTINUE →
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PERSONALITY SCREEN
+========================================= -->
+
+<section
+    id="personalityScreen"
+    class="screen"
+>
+
+
+    <h2 class="section-title">
+
+        YOUR SNEEZE PERSONALITY
+
+    </h2>
+
+
+    <!-- PERSONALITY GIFS -->
+
+    <div
+        id="personalityGif"
+        class="personality-gif"
+    >
+
+
+        <!-- MOUSE -->
+
+        <div
+            id="gif-mouse"
+            class="personality-gif-item"
+        >
 
             <div
-                id="detectedBox"
-                class="detected-box"
+                class="tenor-gif-embed"
+                data-postid="8024046597830070440"
+                data-share-method="host"
+                data-aspect-ratio="1.0332"
+                data-width="100%"
             >
 
-                <div class="detected-icon">
-
-                    🤧
-
-                </div>
-
-
-                <div class="detected-title">
-
-                    SNEEZE DETECTED!
-
-                </div>
-
-
-                <button
-                    class="primary-button"
-                    onclick="showAnalysis()"
+                <a
+                    href="https://tenor.com/view/mouse-gif-8024046597830070440"
                 >
+                    Mouse Meme
+                </a>
 
-                    ANALYSE →
+                from
 
-                </button>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =====================================
-             ANALYSIS SCREEN
-        ====================================== -->
-
-        <section
-            id="analysisScreen"
-            class="screen"
-        >
-
-
-            <!-- ANALYSIS GIF -->
-
-            <div class="analysis-gif">
-
-                <div
-                    class="tenor-gif-embed"
-                    data-postid="14069131"
-                    data-share-method="host"
-                    data-aspect-ratio="1"
-                    data-width="100%"
+                <a
+                    href="https://tenor.com/search/mouse-memes"
                 >
-
-                    <a
-                        href="https://tenor.com/view/heytvm-tvm-graduation-grad-graduating-gif-14069131"
-                    >
-                        Heytvm Graduation Sticker
-                    </a>
-
-                    from
-
-                    <a
-                        href="https://tenor.com/search/heytvm-stickers"
-                    >
-                        Heytvm Stickers
-                    </a>
-
-                </div>
+                    Mouse Memes
+                </a>
 
             </div>
 
-
-            <h2 class="section-title">
-
-                SNEEZE ANALYSIS
-
-            </h2>
-
-
-            <div class="stats-card">
-
-
-                <div class="stat">
-
-                    <span class="stat-label">
-
-                        SNEEZE ACCURACY
-
-                    </span>
-
-                    <span
-                        id="accuracy"
-                        class="stat-value"
-                    >
-
-                        --
-
-                    </span>
-
-                    <span class="stat-unit">
-
-                        %
-
-                    </span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-label">
-
-                        SNEEZE POWER
-
-                    </span>
-
-                    <span
-                        id="power"
-                        class="stat-value"
-                    >
-
-                        --
-
-                    </span>
-
-                    <span class="stat-unit">
-
-                        / 10
-
-                    </span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-label">
-
-                        TIME OF SNEEZE
-
-                    </span>
-
-                    <span
-                        id="sneezeTime"
-                        class="stat-small"
-                    >
-
-                        --
-
-                    </span>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span class="stat-label">
-
-                        SNEEZE DURATION
-
-                    </span>
-
-                    <span
-                        id="duration"
-                        class="stat-value"
-                    >
-
-                        --
-
-                    </span>
-
-                    <span class="stat-unit">
-
-                        sec
-
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-            <button
-                class="primary-button"
-                onclick="showPersonality()"
-            >
-
-                CONTINUE →
-
-            </button>
-
-
-        </section>
+        </div>
 
 
 
-        <!-- =====================================
-             PERSONALITY SCREEN
-        ====================================== -->
+        <!-- TRAIN -->
 
-        <section
-            id="personalityScreen"
-            class="screen"
+        <div
+            id="gif-train"
+            class="personality-gif-item"
         >
-
-
-            <h2 class="section-title">
-
-                YOUR SNEEZE PERSONALITY
-
-            </h2>
-
-
-            <!-- PERSONALITY GIFS
-                 All loaded once.
-                 Only the selected one is displayed.
-            -->
 
             <div
-                id="personalityGif"
-                class="personality-gif"
+                class="tenor-gif-embed"
+                data-postid="5461332310490478175"
+                data-share-method="host"
+                data-aspect-ratio="1"
+                data-width="100%"
             >
 
-
-                <!-- MOUSE -->
-
-                <div
-                    id="gif-mouse"
-                    class="personality-gif-item"
+                <a
+                    href="https://tenor.com/view/train-rail-railroad-railway-locomotive-gif-5461332310490478175"
                 >
+                    Train Rail Sticker
+                </a>
 
-                    <div
-                        class="tenor-gif-embed"
-                        data-postid="8024046597830070440"
-                        data-share-method="host"
-                        data-aspect-ratio="1.0332"
-                        data-width="100%"
-                    >
+                from
 
-                        <a
-                            href="https://tenor.com/view/mouse-gif-8024046597830070440"
-                        >
-                            Mouse Meme
-                        </a>
-
-                        from
-
-                        <a
-                            href="https://tenor.com/search/mouse-memes"
-                        >
-                            Mouse Memes
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- TRAIN -->
-
-                <div
-                    id="gif-train"
-                    class="personality-gif-item"
+                <a
+                    href="https://tenor.com/search/train-stickers"
                 >
-
-                    <div
-                        class="tenor-gif-embed"
-                        data-postid="5461332310490478175"
-                        data-share-method="host"
-                        data-aspect-ratio="1"
-                        data-width="100%"
-                    >
-
-                        <a
-                            href="https://tenor.com/view/train-rail-railroad-railway-locomotive-gif-5461332310490478175"
-                        >
-                            Train Rail Sticker
-                        </a>
-
-                        from
-
-                        <a
-                            href="https://tenor.com/search/train-stickers"
-                        >
-                            Train Stickers
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- DINOSAUR -->
-
-                <div
-                    id="gif-dinosaur"
-                    class="personality-gif-item"
-                >
-
-                    <div
-                        class="tenor-gif-embed"
-                        data-postid="14904067738244826614"
-                        data-share-method="host"
-                        data-aspect-ratio="1"
-                        data-width="100%"
-                    >
-
-                        <a
-                            href="https://tenor.com/view/google-dinosaur-game-dinosaur-pixel-internet-running-gif-14904067738244826614"
-                        >
-                            Google Dinosaur Game Pixel GIF
-                        </a>
-
-                        from
-
-                        <a
-                            href="https://tenor.com/search/google+dinosaur+game-gifs"
-                        >
-                            Google Dinosaur Game GIFs
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- LION -->
-
-                <div
-                    id="gif-lion"
-                    class="personality-gif-item"
-                >
-
-                    <div
-                        class="tenor-gif-embed"
-                        data-postid="9927708839210538722"
-                        data-share-method="host"
-                        data-aspect-ratio="1.29412"
-                        data-width="100%"
-                    >
-
-                        <a
-                            href="https://tenor.com/view/catwalk-gif-9927708839210538722"
-                        >
-                            Catwalk Sticker
-                        </a>
-
-                        from
-
-                        <a
-                            href="https://tenor.com/search/catwalk-stickers"
-                        >
-                            Catwalk Stickers
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- NUCLEAR -->
-
-                <div
-                    id="gif-nuclear"
-                    class="personality-gif-item"
-                >
-
-                    <div
-                        class="tenor-gif-embed"
-                        data-postid="9243943"
-                        data-share-method="host"
-                        data-aspect-ratio="1.33333"
-                        data-width="100%"
-                    >
-
-                        <a
-                            href="https://tenor.com/view/simpsons-gif-9243943"
-                        >
-                            Meltdown GIF
-                        </a>
-
-                        from
-
-                        <a
-                            href="https://tenor.com/search/simpsons-gifs"
-                        >
-                            Simpsons GIFs
-                        </a>
-
-                    </div>
-
-                </div>
-
+                    Train Stickers
+                </a>
 
             </div>
 
-
-            <div class="personality-card">
-
-
-                <div
-                    id="personalityName"
-                    class="personality"
-                >
-
-                    --
-
-                </div>
-
-
-                <p
-                    id="personalityDescription"
-                    class="personality-description"
-                >
-
-                    --
-
-                </p>
-
-
-            </div>
-
-
-            <button
-                class="primary-button award-button"
-                onclick="showAward()"
-            >
-
-                SNEEZE AWARD →
-
-            </button>
-
-
-        </section>
+        </div>
 
 
 
-        <!-- =====================================
-             FINAL AWARD SCREEN
-        ====================================== -->
+        <!-- DINOSAUR -->
 
-        <section
-            id="awardScreen"
-            class="screen"
+        <div
+            id="gif-dinosaur"
+            class="personality-gif-item"
         >
 
+            <div
+                class="tenor-gif-embed"
+                data-postid="14904067738244826614"
+                data-share-method="host"
+                data-aspect-ratio="1"
+                data-width="100%"
+            >
 
-            <div class="certificate">
-
-
-                <div class="certificate-small">
-
-                    OFFICIAL SNEEZE-O-METER
-
-                </div>
-
-
-                <h2 class="certificate-title">
-
-                    SNEEZE CERTIFICATION
-
-                </h2>
-
-
-                <div class="certificate-line"></div>
-
-
-                <div class="certificate-label">
-
-                    YOUR SNEEZE PERSONALITY
-
-                </div>
-
-
-                <div
-                    id="finalPersonality"
-                    class="certificate-personality"
+                <a
+                    href="https://tenor.com/view/google-dinosaur-game-dinosaur-pixel-internet-running-gif-14904067738244826614"
                 >
+                    Google Dinosaur Game Pixel GIF
+                </a>
 
-                    --
+                from
 
-                </div>
-
-
-                <div class="certificate-label award-label">
-
-                    YOUR SNEEZE AWARD
-
-                </div>
-
-
-                <div
-                    id="finalAward"
-                    class="award"
+                <a
+                    href="https://tenor.com/search/google+dinosaur+game-gifs"
                 >
-
-                    --
-
-                </div>
-
-
-                <div class="certificate-seal">
-
-                    🤧
-
-                </div>
-
-
-                <div class="certificate-footer">
-
-                    SCIENTIFICALLY UNNECESSARY.<br>
-
-                    OFFICIALLY CERTIFIED.
-
-                </div>
-
+                    Google Dinosaur Game GIFs
+                </a>
 
             </div>
 
+        </div>
 
-            <button
-                class="primary-button"
-                onclick="resetAndSneeze()"
+
+
+        <!-- LION -->
+
+        <div
+            id="gif-lion"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="9927708839210538722"
+                data-share-method="host"
+                data-aspect-ratio="1.29412"
+                data-width="100%"
             >
 
-                SNEEZE AGAIN
+                <a
+                    href="https://tenor.com/view/catwalk-gif-9927708839210538722"
+                >
+                    Catwalk Sticker
+                </a>
 
-            </button>
+                from
+
+                <a
+                    href="https://tenor.com/search/catwalk-stickers"
+                >
+                    Catwalk Stickers
+                </a>
+
+            </div>
+
+        </div>
 
 
-        </section>
+
+        <!-- NUCLEAR -->
+
+        <div
+            id="gif-nuclear"
+            class="personality-gif-item"
+        >
+
+            <div
+                class="tenor-gif-embed"
+                data-postid="9243943"
+                data-share-method="host"
+                data-aspect-ratio="1.33333"
+                data-width="100%"
+            >
+
+                <a
+                    href="https://tenor.com/view/simpsons-gif-9243943"
+                >
+                    Meltdown GIF
+                </a>
+
+                from
+
+                <a
+                    href="https://tenor.com/search/simpsons-gifs"
+                >
+                    Simpsons GIFs
+                </a>
+
+            </div>
+
+        </div>
 
 
     </div>
 
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-
-    <script>
-
-    // =========================================
-    // VARIABLES
-    // =========================================
-
-    let sneezeData = null;
-    let polling = null;
+    <div class="personality-card">
 
 
-    // =========================================
-    // SOUND FUNCTIONS
-    // =========================================
+        <div
+            id="personalityName"
+            class="personality"
+        >
 
-    function playSound(id) {
+            --
 
-        const sound = document.getElementById(id);
-
-        if (!sound) return;
-
-        sound.currentTime = 0;
-
-        sound.play().catch(() => {});
-
-    }
+        </div>
 
 
-    function stopSound(id) {
+        <p
+            id="personalityDescription"
+            class="personality-description"
+        >
 
-        const sound = document.getElementById(id);
+            --
 
-        if (!sound) return;
-
-        sound.pause();
-        sound.currentTime = 0;
-
-    }
+        </p>
 
 
-    function stopAllSounds() {
+    </div>
 
-        document.querySelectorAll("audio").forEach(sound => {
+
+    <button
+        class="primary-button award-button"
+        onclick="showAward()"
+    >
+
+        SNEEZE AWARD →
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL AWARD SCREEN
+========================================= -->
+
+<section
+    id="awardScreen"
+    class="screen"
+>
+
+
+    <div class="certificate">
+
+
+        <div class="certificate-small">
+
+            OFFICIAL SNEEZE-O-METER
+
+        </div>
+
+
+        <h2 class="certificate-title">
+
+            SNEEZE CERTIFICATION
+
+        </h2>
+
+
+        <div class="certificate-line"></div>
+
+
+        <div class="certificate-label">
+
+            YOUR SNEEZE PERSONALITY
+
+        </div>
+
+
+        <div
+            id="finalPersonality"
+            class="certificate-personality"
+        >
+
+            --
+
+        </div>
+
+
+        <div class="certificate-label award-label">
+
+            YOUR SNEEZE AWARD
+
+        </div>
+
+
+        <div
+            id="finalAward"
+            class="award"
+        >
+
+            --
+
+        </div>
+
+
+        <div class="certificate-seal">
+
+            🤧
+
+        </div>
+
+
+        <div class="certificate-footer">
+
+            SCIENTIFICALLY UNNECESSARY.<br>
+
+            OFFICIALLY CERTIFIED.
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="primary-button"
+        onclick="resetAndSneeze()"
+    >
+
+        SNEEZE AGAIN
+
+    </button>
+
+
+</section>
+
+
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+// =========================================
+// GLOBAL VARIABLES
+// =========================================
+
+let sneezeData = null;
+
+let audioContext = null;
+
+let analyser = null;
+
+let microphone = null;
+
+let mediaStream = null;
+
+let animationFrame = null;
+
+let detecting = false;
+
+let loudStart = null;
+
+let peakVolume = 0;
+
+
+
+// =========================================
+// SOUND FUNCTIONS
+// =========================================
+
+function playSound(id) {
+
+    const sound =
+        document.getElementById(id);
+
+    if (!sound) return;
+
+
+    sound.currentTime = 0;
+
+
+    sound.play().catch(() => {});
+
+}
+
+
+
+function stopSound(id) {
+
+    const sound =
+        document.getElementById(id);
+
+    if (!sound) return;
+
+
+    sound.pause();
+
+    sound.currentTime = 0;
+
+}
+
+
+
+function stopAllSounds() {
+
+    document
+        .querySelectorAll("audio")
+        .forEach(sound => {
 
             sound.pause();
+
             sound.currentTime = 0;
 
         });
 
-    }
+}
 
 
 
-    // =========================================
-    // SCREEN SWITCHER
-    // =========================================
+// =========================================
+// SCREEN SWITCHER
+// =========================================
 
-    function showScreen(screenId) {
+function showScreen(screenId) {
 
-        const screens =
-            document.querySelectorAll(".screen");
-
-
-        screens.forEach(screen => {
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
 
             screen.classList.remove("active");
 
         });
 
 
+    const screen =
+        document.getElementById(screenId);
+
+
+    if (screen) {
+
+        screen.classList.add("active");
+
+    }
+
+}
+
+
+
+// =========================================
+// START SNEEZE
+// =========================================
+
+async function startSneeze() {
+
+    stopAllSounds();
+
+    stopMicrophone();
+
+
+    sneezeData = null;
+
+
+    showScreen("listeningScreen");
+
+
+    document
+        .getElementById("detectedBox")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("waitingText")
+        .innerText =
+        "Waiting for your sneeze...";
+
+
+    playSound("sound-startup");
+
+
+    setTimeout(() => {
+
+        playSound("sound-listening");
+
+    }, 250);
+
+
+    try {
+
+        await startMicrophone();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Microphone error:",
+            error
+        );
+
+
+        stopSound("sound-listening");
+
+
         document
-            .getElementById(screenId)
-            .classList.add("active");
+            .getElementById("waitingText")
+            .innerText =
+            "Please allow microphone access and try again.";
+
+    }
+
+}
+
+
+
+// =========================================
+// START MICROPHONE
+// =========================================
+
+async function startMicrophone() {
+
+
+    // Browser support check
+
+    if (
+        !navigator.mediaDevices ||
+        !navigator.mediaDevices.getUserMedia
+    ) {
+
+        throw new Error(
+            "Microphone API is not supported."
+        );
+
+    }
+
+
+    // Ask visitor for microphone
+
+    mediaStream =
+        await navigator.mediaDevices.getUserMedia({
+
+            audio: {
+
+                echoCancellation: false,
+
+                noiseSuppression: false,
+
+                autoGainControl: false
+
+            }
+
+        });
+
+
+    // Create AudioContext
+
+    audioContext =
+        new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
+
+
+    // Resume audio context
+
+    if (
+        audioContext.state === "suspended"
+    ) {
+
+        await audioContext.resume();
+
+    }
+
+
+    // Create analyser
+
+    analyser =
+        audioContext.createAnalyser();
+
+
+    analyser.fftSize = 2048;
+
+    analyser.smoothingTimeConstant = 0.1;
+
+
+    // Connect microphone
+
+    microphone =
+        audioContext.createMediaStreamSource(
+            mediaStream
+        );
+
+
+    microphone.connect(analyser);
+
+
+    detecting = true;
+
+    loudStart = null;
+
+    peakVolume = 0;
+
+
+    detectAudio();
+
+}
+
+
+
+// =========================================
+// AUDIO DETECTION
+// =========================================
+
+function detectAudio() {
+
+    if (
+        !detecting ||
+        !analyser
+    ) {
+
+        return;
+
+    }
+
+
+    const bufferLength =
+        analyser.fftSize;
+
+
+    const dataArray =
+        new Uint8Array(bufferLength);
+
+
+    analyser.getByteTimeDomainData(
+        dataArray
+    );
+
+
+    let sum = 0;
+
+
+    for (
+        let i = 0;
+        i < bufferLength;
+        i++
+    ) {
+
+        const value =
+            (
+                dataArray[i] - 128
+            ) / 128;
+
+
+        sum += value * value;
+
+    }
+
+
+    const rms =
+        Math.sqrt(
+            sum / bufferLength
+        );
+
+
+    /*
+        Sneeze detection threshold.
+
+        Lower number = more sensitive.
+
+        Higher number = less sensitive.
+    */
+
+    const threshold = 0.10;
+
+
+    if (rms > threshold) {
+
+
+        // Start of loud sound
+
+        if (!loudStart) {
+
+            loudStart =
+                performance.now();
+
+            peakVolume = 0;
+
+        }
+
+
+        // Track loudest point
+
+        peakVolume =
+            Math.max(
+                peakVolume,
+                rms
+            );
+
+    }
+
+
+    else {
+
+
+        // Loud sound ended
+
+        if (loudStart !== null) {
+
+
+            const duration =
+                performance.now() -
+                loudStart;
+
+
+            /*
+                Accept sounds between:
+
+                80 ms
+                and
+                1800 ms
+            */
+
+            if (
+                duration >= 80 &&
+                duration <= 1800
+            ) {
+
+                finishSneeze(
+                    duration / 1000
+                );
+
+                return;
+
+            }
+
+
+            // Not accepted
+
+            loudStart = null;
+
+            peakVolume = 0;
+
+        }
+
+    }
+
+
+    animationFrame =
+        requestAnimationFrame(
+            detectAudio
+        );
+
+}
+
+
+
+// =========================================
+// FINISH SNEEZE
+// =========================================
+
+function finishSneeze(duration) {
+
+    if (!detecting) {
+
+        return;
+
+    }
+
+
+    detecting = false;
+
+
+    stopMicrophone();
+
+
+    stopSound(
+        "sound-listening"
+    );
+
+
+    playSound(
+        "sound-detected"
+    );
+
+
+    // =====================================
+    // SNEEZE POWER
+    // =====================================
+
+    let power =
+        Math.min(
+            10,
+            Math.max(
+                1,
+                Math.round(
+                    peakVolume * 18
+                )
+            )
+        );
+
+
+    // =====================================
+    // SNEEZE ACCURACY
+    // =====================================
+
+    let accuracy =
+        Math.min(
+            99,
+            Math.max(
+                70,
+                Math.round(
+                    78 +
+                    (
+                        peakVolume * 35
+                    ) +
+                    Math.min(
+                        duration * 5,
+                        12
+                    )
+                )
+            )
+        );
+
+
+    // Small random fun factor
+
+    accuracy +=
+        Math.floor(
+            Math.random() * 5
+        );
+
+
+    accuracy =
+        Math.min(
+            99,
+            accuracy
+        );
+
+
+
+    // =====================================
+    // TIME
+    // =====================================
+
+    const time =
+        new Date().toLocaleTimeString(
+            [],
+            {
+
+                hour: "2-digit",
+
+                minute: "2-digit",
+
+                second: "2-digit"
+
+            }
+        );
+
+
+
+    // =====================================
+    // STORE RESULT
+    // =====================================
+
+    sneezeData = {
+
+        accuracy: accuracy,
+
+        power: power,
+
+        duration: duration,
+
+        time: time
+
+    };
+
+
+
+    // =====================================
+    // UPDATE UI
+    // =====================================
+
+    document
+        .getElementById("waitingText")
+        .innerText =
+        "Sneeze successfully detected!";
+
+
+    document
+        .getElementById("detectedBox")
+        .classList.add("show");
+
+}
+
+
+
+// =========================================
+// STOP MICROPHONE
+// =========================================
+
+function stopMicrophone() {
+
+
+    detecting = false;
+
+
+    // Stop animation
+
+    if (animationFrame) {
+
+        cancelAnimationFrame(
+            animationFrame
+        );
+
+        animationFrame = null;
+
+    }
+
+
+    // Disconnect microphone
+
+    if (microphone) {
+
+        try {
+
+            microphone.disconnect();
+
+        }
+
+        catch (error) {}
+
+        microphone = null;
+
+    }
+
+
+    // Stop media tracks
+
+    if (mediaStream) {
+
+        mediaStream
+            .getTracks()
+            .forEach(track => {
+
+                track.stop();
+
+            });
+
+        mediaStream = null;
+
+    }
+
+
+    // Close audio context
+
+    if (audioContext) {
+
+        try {
+
+            audioContext.close();
+
+        }
+
+        catch (error) {}
+
+        audioContext = null;
+
+    }
+
+
+    analyser = null;
+
+}
+
+
+
+// =========================================
+// SHOW ANALYSIS
+// =========================================
+
+function showAnalysis() {
+
+    if (!sneezeData) {
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("power")
+        .innerText =
+        Number(
+            sneezeData.power
+        ).toFixed(2);
+
+
+    document
+        .getElementById("accuracy")
+        .innerText =
+        Number(
+            sneezeData.accuracy
+        ).toFixed(2);
+
+
+    document
+        .getElementById("sneezeTime")
+        .innerText =
+        sneezeData.time;
+
+
+    document
+        .getElementById("duration")
+        .innerText =
+        Number(
+            sneezeData.duration
+        ).toFixed(2);
+
+
+    stopSound(
+        "sound-detected"
+    );
+
+
+    showScreen(
+        "analysisScreen"
+    );
+
+}
+
+
+
+// =========================================
+// SHOW PERSONALITY
+// =========================================
+
+function showPersonality() {
+
+    if (!sneezeData) {
+
+        return;
 
     }
 
 
 
-    // =========================================
-    // START SNEEZE DETECTION
-    // =========================================
-
-    function startSneeze() {
-
-        // Stop every previous sound
-        stopAllSounds();
+    const personalities = [
 
 
-        // Reset data
-        sneezeData = null;
+        {
+
+            name: "🐭 Mouse Sneeze",
+
+            description:
+                "Small, precise and suspiciously adorable.",
+
+            gif: "mouse"
+
+        },
 
 
-        // Show listening screen
-        showScreen("listeningScreen");
+        {
+
+            name: "🚂 Train Sneeze",
+
+            description:
+                "Long, unstoppable and slightly concerning.",
+
+            gif: "train"
+
+        },
 
 
-        // Hide detected box
-        document
-            .getElementById("detectedBox")
-            .classList.remove("show");
+        {
+
+            name: "☢️ Nuclear Sneeze",
+
+            description:
+                "Absolutely unnecessary levels of power.",
+
+            gif: "nuclear"
+
+        },
 
 
-        // Reset waiting text
-        document
-            .getElementById("waitingText")
-            .innerText =
-            "Waiting for your sneeze...";
+        {
+
+            name: "🦁 Lion Sneeze",
+
+            description:
+                "Loud, powerful and impossible to ignore.",
+
+            gif: "lion"
+
+        },
 
 
-        // -----------------------------------------
-        // STARTUP SOUND
-        // -----------------------------------------
+        {
 
-        playSound("sound-startup");
+            name: "🦖 Dinosaur Sneeze",
 
+            description:
+                "A prehistoric level of sneeze energy.",
 
-        // -----------------------------------------
-        // LISTENING SOUND
-        // -----------------------------------------
-
-        setTimeout(() => {
-
-            playSound("sound-listening");
-
-        }, 250);
-
-
-        // -----------------------------------------
-        // START PYTHON DETECTOR
-        // -----------------------------------------
-
-        fetch("/start")
-
-            .then(response => response.json())
-
-            .then(data => {
-
-                console.log("Detector started");
-
-            })
-
-            .catch(error => {
-
-                console.log(error);
-
-            });
-
-
-        // -----------------------------------------
-        // CHECK RESULT
-        // -----------------------------------------
-
-        if (polling) {
-
-            clearInterval(polling);
+            gif: "dinosaur"
 
         }
 
+    ];
 
-        polling = setInterval(
-            checkResult,
-            200
+
+
+    // Pick random personality
+
+    const personality =
+        personalities[
+            Math.floor(
+                Math.random() *
+                personalities.length
+            )
+        ];
+
+
+
+    sneezeData.personality =
+        personality.name;
+
+
+    sneezeData.description =
+        personality.description;
+
+
+    sneezeData.gif =
+        personality.gif;
+
+
+
+    // =====================================
+    // AWARD
+    // =====================================
+
+    const power =
+        sneezeData.power;
+
+
+    const accuracy =
+        sneezeData.accuracy;
+
+
+    const duration =
+        sneezeData.duration;
+
+
+
+    if (power >= 8) {
+
+        sneezeData.award =
+            "💥 Most Powerful Sneeze";
+
+    }
+
+    else if (duration <= 0.5) {
+
+        sneezeData.award =
+            "⚡ Fastest Sneeze";
+
+    }
+
+    else if (accuracy >= 95) {
+
+        sneezeData.award =
+            "🏆 Sneeze of the Year";
+
+    }
+
+    else if (duration >= 1.2) {
+
+        sneezeData.award =
+            "🎭 Most Dramatic Sneeze";
+
+    }
+
+    else {
+
+        sneezeData.award =
+            "🔊 Loudest Sneeze";
+
+    }
+
+
+
+    // =====================================
+    // PERSONALITY TEXT
+    // =====================================
+
+    document
+        .getElementById(
+            "personalityName"
+        )
+        .innerText =
+        sneezeData.personality;
+
+
+    document
+        .getElementById(
+            "personalityDescription"
+        )
+        .innerText =
+        sneezeData.description;
+
+
+
+    // =====================================
+    // HIDE ALL GIFS
+    // =====================================
+
+    document
+        .querySelectorAll(
+            ".personality-gif-item"
+        )
+        .forEach(gif => {
+
+            gif.classList.remove(
+                "selected"
+            );
+
+        });
+
+
+
+    // =====================================
+    // SHOW SELECTED GIF
+    // =====================================
+
+    const selectedGif =
+        document.getElementById(
+            "gif-" +
+            sneezeData.gif
+        );
+
+
+    if (selectedGif) {
+
+        selectedGif.classList.add(
+            "selected"
         );
 
     }
 
 
 
-    // =========================================
-    // CHECK RESULT
-    // =========================================
+    // =====================================
+    // SOUND
+    // =====================================
 
-    function checkResult() {
-
-        fetch("/result")
-
-            .then(response => response.json())
-
-            .then(data => {
-
-                if (data !== null) {
-
-                    sneezeData = data;
+    stopAllSounds();
 
 
-                    // Stop polling
-                    clearInterval(polling);
+    playSound(
+        "sound-personality"
+    );
 
 
-                    // Stop listening sound
-                    stopSound("sound-listening");
+
+    // =====================================
+    // SCREEN
+    // =====================================
+
+    showScreen(
+        "personalityScreen"
+    );
+
+}
 
 
-                    // Play detected sound
-                    playSound("sound-detected");
 
+// =========================================
+// SHOW AWARD
+// =========================================
 
-                    // Update text
-                    document
-                        .getElementById("waitingText")
-                        .innerText =
-                        "Sneeze successfully detected!";
+function showAward() {
 
+    if (!sneezeData) {
 
-                    // Show detected box
-                    document
-                        .getElementById("detectedBox")
-                        .classList.add("show");
-
-                }
-
-            })
-
-            .catch(error => {
-
-                console.log(error);
-
-            });
+        return;
 
     }
 
 
 
-    // =========================================
-    // SHOW ANALYSIS
-    // =========================================
+    // Personality
 
-    function showAnalysis() {
+    document
+        .getElementById(
+            "finalPersonality"
+        )
+        .innerText =
+        sneezeData.personality;
 
-        if (!sneezeData) {
 
-            return;
 
-        }
+    // Award
 
+    document
+        .getElementById(
+            "finalAward"
+        )
+        .innerText =
+        sneezeData.award;
 
-        // Accuracy
-      document.getElementById("power").innerText =
-    Number(sneezeData.power).toFixed(2);
 
-document.getElementById("accuracy").innerText =
-    Number(sneezeData.accuracy).toFixed(2) + "%";
 
+    // Sound
 
+    stopSound(
+        "sound-personality"
+    );
 
 
-        // Time
-        document
-            .getElementById("sneezeTime")
-            .innerText =
-            sneezeData.time;
+    playSound(
+        "sound-award"
+    );
 
 
-        // Duration
-document.getElementById("duration").innerText =
-    Number(sneezeData.duration).toFixed(2) + " s";
 
-        // No analysis sound
-        stopSound("sound-detected");
+    // Screen
 
+    showScreen(
+        "awardScreen"
+    );
 
-        // Show analysis screen
-        showScreen("analysisScreen");
+}
 
-    }
 
 
+// =========================================
+// RESET / SNEEZE AGAIN
+// =========================================
 
-    // =========================================
-    // SHOW PERSONALITY
-    // =========================================
+function resetAndSneeze() {
 
-    function showPersonality() {
+    stopMicrophone();
 
-        if (!sneezeData) {
+    stopAllSounds();
 
-            return;
 
-        }
+    sneezeData = null;
 
 
-        // Personality name
-        document
-            .getElementById("personalityName")
-            .innerText =
-            sneezeData.personality;
+    playSound(
+        "sound-reset"
+    );
 
 
-        // Personality description
-        document
-            .getElementById("personalityDescription")
-            .innerText =
-            sneezeData.description;
+    showScreen(
+        "homeScreen"
+    );
 
 
-        // -----------------------------------------
-        // HIDE ALL PERSONALITY GIFS
-        // -----------------------------------------
+    setTimeout(() => {
 
-        const gifs =
-            document.querySelectorAll(
-                ".personality-gif-item"
-            );
+        startSneeze();
 
+    }, 300);
 
-        gifs.forEach(gif => {
+}
 
-            gif.classList.remove("selected");
-
-        });
-
-
-        // -----------------------------------------
-        // SHOW MATCHING GIF
-        // -----------------------------------------
-
-        const selectedGif =
-            document.getElementById(
-                "gif-" + sneezeData.gif
-            );
-
-
-        if (selectedGif) {
-
-            selectedGif.classList.add("selected");
-
-        }
-
-
-        // -----------------------------------------
-        // SOUND
-        // -----------------------------------------
-
-        stopAllSounds();
-
-        playSound("sound-personality");
-
-
-        // -----------------------------------------
-        // SCREEN
-        // -----------------------------------------
-
-        showScreen("personalityScreen");
-
-    }
-
-
-
-    // =========================================
-    // SHOW AWARD
-    // =========================================
-
-    function showAward() {
-
-        if (!sneezeData) {
-
-            return;
-
-        }
-
-
-        // Final personality
-        document
-            .getElementById("finalPersonality")
-            .innerText =
-            sneezeData.personality;
-
-
-        // Final award
-        document
-            .getElementById("finalAward")
-            .innerText =
-            sneezeData.award;
-
-
-        // -----------------------------------------
-        // SOUND
-        // -----------------------------------------
-
-        stopSound("sound-personality");
-
-        playSound("sound-award");
-
-
-        // -----------------------------------------
-        // SCREEN
-        // -----------------------------------------
-
-        showScreen("awardScreen");
-
-    }
-
-
-
-    // =========================================
-    // SNEEZE AGAIN
-    // =========================================
-
-    function resetAndSneeze() {
-
-        // Stop everything
-        stopAllSounds();
-
-
-        // Clear data
-        sneezeData = null;
-
-
-        // Stop polling
-        if (polling) {
-
-            clearInterval(polling);
-
-            polling = null;
-
-        }
-
-
-        // Play reset sound
-        playSound("sound-reset");
-
-
-        // Go home
-        showScreen("homeScreen");
-
-
-        // Automatically start again
-        setTimeout(() => {
-
-            startSneeze();
-
-        }, 300);
-
-    }
 
 </script>
 
